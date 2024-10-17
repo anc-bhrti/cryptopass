@@ -9,6 +9,7 @@ import './styles/nft-footer.css';
 import Background from './components/Background.js';
 import MainContent from './components/MainContent.js';
 import Organiser from './components/Organiser.js';
+import Concert from './components/Concert.js';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </>
           } />
           <Route path="/organiser" element={<Organiser />} />
+          <Route path="/concert" element={<Concert />}/>
         </Routes>
       </div>
     </Router>
