@@ -15,7 +15,6 @@ const ConcertRegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
     console.log({
       concertName,
       artistName,
