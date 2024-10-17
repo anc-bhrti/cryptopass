@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from './Card';
 import kanikaKapoor from '../images/KanikaKapoor.jpg';
 import shreyaGhosal from '../images/shreyaGhosal.jpg';
@@ -10,84 +11,39 @@ import jonitaGandhi from '../images/jonitaGandhi.jpeg';
 import mohitChauhan from '../images/mohitChauhan.jpeg';
 import monaliThakur from '../images/monaliThakur.jpg';
 import './MainContent.css';
-import concert from './Concert.js';
 
 const MainContent = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/event-detail');
+  };
+
+  const cardData = [
+    { image: kanikaKapoor, artist: "Kanika Kapoor" },
+    { image: badshah, artist: "Badshah" },
+    { image: shreyaGhosal, artist: "Shreya Ghoshal" },
+    { image: sanam, artist: "Sanam" },
+    { image: arijitSingh, artist: "Arijit Singh" },
+    { image: darshanRaval, artist: "Darshan Raval" },
+    { image: mohitChauhan, artist: "Mohit Chauhan" },
+    { image: jonitaGandhi, artist: "Jonita Gandhi" },
+    { image: monaliThakur, artist: "Monali Thakur" }
+  ];
+
   return (
     <div className="main-content">
-        
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={kanikaKapoor}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={badshah}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={shreyaGhosal}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={sanam}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={arijitSingh}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={darshanRaval}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={mohitChauhan}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={jonitaGandhi}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
-      <Card 
-        className="cards"
-        title="Concert Event"
-        image={monaliThakur}
-        description="Join us for an unforgettable night of live music!"
-        buttonText="Buy Ticket"
-        onButtonClick={() => window.open(concert)}
-      />
+      {cardData.map((card, index) => (
+        <Card 
+          key={index}
+          className="cards"
+          title={`${card.artist} Concert`}
+          image={card.image}
+          description="Join us for an unforgettable night of live music!"
+          buttonText="Buy Ticket"
+          onButtonClick={handleButtonClick}
+        />
+      ))}
     </div>
   );
 }
