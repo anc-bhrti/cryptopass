@@ -7,7 +7,9 @@ const ConcertRegistrationForm = () => {
   const [venue, setVenue] = useState('');
   const [description, setDescription] = useState('');
   const [ticketPrice, setTicketPrice] = useState('');
-  const [ticketsAvailable, setTicketsAvailable] = useState('');
+  const [royal_ticketsAvailable, setRoyalTicketsAvailable] = useState('');
+  const [regular_ticketsAvailable, setRegularTicketsAvailable] = useState('');
+
   const [poster, setPoster] = useState(null);
   const [contactEmail, setContactEmail] = useState('');
   const [category, setCategory] = useState('');
@@ -22,10 +24,12 @@ const ConcertRegistrationForm = () => {
       venue,
       description,
       ticketPrice,
-      ticketsAvailable,
+      royal_ticketsAvailable,
+      regular_ticketsAvailable,
+
       poster,
       contactEmail,
-      category,
+     
       additionalInfo,
     });
   };
@@ -95,13 +99,23 @@ const ConcertRegistrationForm = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="ticketsAvailable">Tickets Available:</label>
+          <h1 style={{ fontSize: '20px', marginBottom: '20px' }}>Tickets Avaialbility</h1>
+          <label htmlFor="royal">Royal </label>
+          <input
+          style={{fontWeight:'lighter'}}
+            type="number"
+            id="ticketsAvailable"
+            value={royal_ticketsAvailable}
+            onChange={(e) => setRoyalTicketsAvailable(e.target.value)}
+          />
+          <label htmlFor="regular">Regular </label>
           <input
             type="number"
             id="ticketsAvailable"
-            value={ticketsAvailable}
-            onChange={(e) => setTicketsAvailable(e.target.value)}
+            value={regular_ticketsAvailable}
+            onChange={(e) => setRegularTicketsAvailable(e.target.value)}
           />
+
         </div>
 
         <div className="form-group">
@@ -121,21 +135,6 @@ const ConcertRegistrationForm = () => {
             value={contactEmail}
             onChange={(e) => setContactEmail(e.target.value)}
           />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="category">Event Category:</label>
-          <select
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="">Select Category</option>
-            <option value="rock">Rock</option>
-            <option value="jazz">Jazz</option>
-            <option value="classical">Classical</option>
-            <option value="pop">Pop</option>
-          </select>
         </div>
 
         <div className="form-group">
@@ -218,6 +217,7 @@ const styles = `
   .submit-btn:hover {
     background-color: #45a049;
   }
+    
 `;
 
 export default () => (
