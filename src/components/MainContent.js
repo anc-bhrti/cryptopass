@@ -10,7 +10,7 @@ import jonitaGandhi from '../images/jonitaGandhi.jpeg';
 import mohitChauhan from '../images/mohitChauhan.jpeg';
 import monaliThakur from '../images/monaliThakur.jpg';
 import './MainContent.css';
-import concert from './Concert.js';
+import concert from './SignIn.js';
 
 const MainContent = () => {
   return (
