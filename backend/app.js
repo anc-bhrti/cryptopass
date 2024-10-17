@@ -62,7 +62,7 @@ app.post('/addEvent', upload.single('poster'), async (req, res) => {
     try {
         const { concertName, artistName, venue, description, regularPrice, regularCount, royalPrice, royalCount, email, info } = req.body;
         const dateTime = new Date(req.body.dateTime);
-        const posterPath = `req.file ? /uploads/${req.file.filename} : null`;
+        const posterPath = `req.file ? /uploads/${concertName + artistName} : null`;
 
         const newEvent = new EventModel({
             concertName,
